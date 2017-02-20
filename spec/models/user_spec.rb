@@ -43,6 +43,7 @@ RSpec.describe User, type: :model do
 
   describe "with a password that's too short" do
     before { @user.password = @user.password_confirmation = "a" * 5 }
+    it { should_not be_valid }
   end
 
   describe "when name is not present" do
