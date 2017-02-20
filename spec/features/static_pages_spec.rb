@@ -37,7 +37,7 @@ describe "Static pages" do
   describe "Contact page" do
     before { visit contact_path }
     let(:heading) { 'Contact page' }
-    let(:page_title) { 'Contact'.titleize }
+    let(:page_title) { 'Contact' }
 
     it_should_behave_like "all static pages"
   end
