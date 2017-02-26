@@ -18,11 +18,11 @@
 <div class="container">
   <div class="header">
     <ul class="nav nav-pills pull-right">
-      <li><%= link_to "Home",    root_path %></li>
-      <li><%= link_to "Help",    help_path %></li>
-      <li><%= link_to "About",   about_path %></li>
-      <li><%= link_to "Contact",   contact_path %></li>
-      <li><%= link_to "Sign up", signup_path %></li>
+      <li class="<%= active(root_path) %>"><%= link_to "Home",    root_path %></li>
+      <li class="<%= active(help_path) %>"><%= link_to "Help",    help_path %></li>
+      <li class="<%= active(about_path) %>"><%= link_to "About",   about_path %></li>
+      <li class="<%= active(contact_path) %>"><%= link_to "Contact",   contact_path %></li>
+      <li class="<%= active(signup_path) %>"><%= link_to "Sign up", signup_path %></li>
     </ul>
     <h3 class="text-muted">Project name</h3>
   </div>
