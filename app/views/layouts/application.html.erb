@@ -29,12 +29,18 @@
 
   <div class="row marketing">
     <div class="col-lg-6">
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>">
+          <%= value %>
+        </div>
+      <% end %>
       <%= yield%>
     </div>
   </div>
 
   <%= render('layouts/footer') %>
 
+  <%= debug(params) if Rails.env.development? %>
 </div>
 </body>
 </html>

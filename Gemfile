@@ -41,6 +41,7 @@ end
 
 group :test do
   gem 'database_cleaner'
+  gem 'factory_girl', '~> 4.8'
 end
 
 group :development do
