@@ -1,7 +1,6 @@
 require 'spec_helper'
 require 'factories'
 
-
 RSpec.feature "User pages" do
 
   subject { page }
@@ -33,6 +32,13 @@ RSpec.feature "User pages" do
       it "should not create a user" do
         expect { click_button submit }.not_to change(User, :count)
       end
+
+      describe "after submission" do
+        before { click_button submit }
+
+        it { should have_title(full_title(title)) }
+        it { should have_content('error' && 'cant\'t be blank' && 'too short') }
+      end
     end
 
     describe "with valid information" do
@@ -45,6 +51,14 @@ RSpec.feature "User pages" do
 
       it "should create a user" do
         expect { click_button submit }.to change(User, :count).by(1)
+      end
+
+      describe "after saving the user" do
+        before { click_button submit }
+        let(:user) { User.find_by(email: 'user@example.com') }
+
+        it { should have_title(user.name) }
+        it { should have_selector('div.alert.alert-success', text: 'Welcome') }
       end
     end
   end
